@@ -1,4 +1,4 @@
-# PostgreSQL Tutorial: Building a Peer-to-Peer Delivery Platform Database
+# PostgreSQL Complete Tutorial: From Beginner to Advanced
 
 An interactive educational platform for learning PostgreSQL from beginner to advanced by building a real-world database system. Built with React, Vite, and TailwindCSS.
 
