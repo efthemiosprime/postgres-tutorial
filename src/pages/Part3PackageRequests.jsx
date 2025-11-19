@@ -5,6 +5,7 @@ import SQLEditor from '../components/SQLEditor';
 import QueryResults from '../components/QueryResults';
 import EducationalPanel, { KeyConcept, CommonMistakes, RealWorldExample } from '../components/EducationalPanel';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 
 export default function Part3PackageRequests() {
   const [queryResults, setQueryResults] = useState(null);
@@ -135,6 +136,13 @@ CREATE INDEX idx_package_requests_dates ON package_requests(pickup_date_preferre
             />
           </EducationalPanel>
         </div>
+
+        <PSQLReminder>
+          <p className="text-sm text-gray-700">
+            Make sure you are connected to the <code className="bg-gray-100 px-1 rounded">p2p_delivery</code> database before running the
+            package request SQL scripts.
+          </p>
+        </PSQLReminder>
 
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Create Package Requests Table</h2>

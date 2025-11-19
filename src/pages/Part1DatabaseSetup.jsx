@@ -16,6 +16,7 @@ import CheatSheet from '../components/CheatSheet';
 import Exercise from '../components/Exercise';
 import QueryExplainer from '../components/QueryExplainer';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 import { part1Queries } from '../utils/sqlQueries';
 import { usersSchema } from '../utils/schemas';
 
@@ -202,22 +203,13 @@ export default function Part1DatabaseSetup() {
         {/* Step 1: Create Database */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Step 1: Create the Database</h2>
-          <p className="text-gray-700 mb-4">
-            First, open the <code className="bg-gray-100 px-1 rounded">psql</code> interactive shell, then create a new PostgreSQL database for our platform.
-          </p>
-          <div className="mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
-            <p className="text-sm text-gray-700 mb-2">
-              From your terminal, connect to PostgreSQL (replace <code className="bg-gray-100 px-1 rounded">postgres</code> with your username if different):
-            </p>
-            <pre className="text-sm text-gray-900 bg-gray-900 text-green-200 rounded-lg p-3 overflow-x-auto mb-2">
-psql -U postgres -d postgres
-            </pre>
+          <PSQLReminder database="postgres">
             <p className="text-sm text-gray-700">
-              Once you see the <code className="bg-gray-100 px-1 rounded">postgres=#</code> prompt, run the SQL below. If your server is on a different host or port, add
-              <code className="bg-gray-100 px-1 rounded"> -h your_host -p 5432</code> to the command. You can exit <code className="bg-gray-100 px-1 rounded">psql</code> anytime with
-              <code className="bg-gray-100 px-1 rounded"> \q</code>.
+              Use the default <code className="bg-gray-100 px-1 rounded">postgres</code> maintenance database when connecting for the first time.
+              After creating <code className="bg-gray-100 px-1 rounded">p2p_delivery</code>, switch into it via&nbsp;
+              <code className="bg-gray-100 px-1 rounded">\c p2p_delivery</code> before running the rest of the tutorial.
             </p>
-          </div>
+          </PSQLReminder>
           <SQLEditor initialQuery={part1Queries.createDatabase} readOnly={true} />
           <EducationalPanel title="Understanding This Step" type="info" defaultOpen={false}>
             <StepByStep 

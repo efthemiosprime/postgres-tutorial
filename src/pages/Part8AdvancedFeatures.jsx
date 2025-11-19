@@ -5,6 +5,7 @@ import SQLEditor from '../components/SQLEditor';
 import QueryResults from '../components/QueryResults';
 import EducationalPanel, { KeyConcept, CommonMistakes, RealWorldExample } from '../components/EducationalPanel';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 
 export default function Part8AdvancedFeatures() {
   const [queryResults, setQueryResults] = useState(null);
@@ -150,6 +151,12 @@ CREATE TRIGGER update_ratings_updated_at
         </div>
 
         <div className="space-y-6 mb-8">
+          <PSQLReminder>
+            <p className="text-sm text-gray-700">
+              All views, functions, and triggers should be created inside <code className="bg-gray-100 px-1 rounded">p2p_delivery</code>.
+              Connect with <code className="bg-gray-100 px-1 rounded">psql -U postgres -d p2p_delivery</code> before running the commands below.
+            </p>
+          </PSQLReminder>
           <EducationalPanel title="Learning Objectives" type="default" defaultOpen={true}>
             <ul className="list-disc list-inside space-y-2 text-gray-700">
               <li>Create <GlossaryTerm term="VIEW">views</GlossaryTerm> for common queries</li>

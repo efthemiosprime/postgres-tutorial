@@ -7,6 +7,7 @@ import EducationalPanel, { KeyConcept, CommonMistakes, StepByStep, RealWorldExam
 import SchemaVisualization from '../components/SchemaVisualization';
 import QueryExplainer from '../components/QueryExplainer';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 import { part2Queries } from '../utils/sqlQueries';
 import { carrierTripsSchema } from '../utils/schemas';
 
@@ -109,6 +110,14 @@ export default function Part2CarrierTrips() {
             <SchemaVisualization schema={[carrierTripsSchema]} />
           </EducationalPanel>
         </div>
+
+        <PSQLReminder>
+          <p className="text-sm text-gray-700">
+            Connect to the tutorial database you created earlier:
+            <code className="bg-gray-100 px-1 rounded ml-2">psql -U postgres -d p2p_delivery</code>. Stay in this database for the rest
+            of the tutorial.
+          </p>
+        </PSQLReminder>
 
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Step 1: Create ENUM Types</h2>

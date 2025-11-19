@@ -5,6 +5,7 @@ import SQLEditor from '../components/SQLEditor';
 import QueryResults from '../components/QueryResults';
 import EducationalPanel, { KeyConcept, CommonMistakes, RealWorldExample } from '../components/EducationalPanel';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 
 export default function Part4DeliveryMatches() {
   const [queryResults, setQueryResults] = useState(null);
@@ -128,6 +129,13 @@ CREATE INDEX idx_delivery_matches_status ON delivery_matches(match_status);`;
             />
           </EducationalPanel>
         </div>
+
+        <PSQLReminder>
+          <p className="text-sm text-gray-700">
+            Connect to the <code className="bg-gray-100 px-1 rounded">p2p_delivery</code> database so the delivery matching tables are
+            available: <code className="bg-gray-100 px-1 rounded">psql -U postgres -d p2p_delivery</code>.
+          </p>
+        </PSQLReminder>
 
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Create Delivery Matches Table</h2>

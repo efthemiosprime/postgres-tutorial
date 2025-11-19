@@ -6,6 +6,7 @@ import QueryResults from '../components/QueryResults';
 import EducationalPanel, { KeyConcept, StepByStep, RealWorldExample } from '../components/EducationalPanel';
 import QueryExplainer from '../components/QueryExplainer';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 
 export default function Part6MatchingAlgorithm() {
   const [queryResults, setQueryResults] = useState(null);
@@ -131,6 +132,13 @@ ORDER BY pr.urgency_level DESC, estimated_cost ASC;`;
             />
           </EducationalPanel>
         </div>
+
+        <PSQLReminder>
+          <p className="text-sm text-gray-700">
+            Run matching queries inside the <code className="bg-gray-100 px-1 rounded">p2p_delivery</code> database. Connect with{' '}
+            <code className="bg-gray-100 px-1 rounded">psql -U postgres -d p2p_delivery</code> before executing the SQL below.
+          </p>
+        </PSQLReminder>
 
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Find Compatible Trips for a Package</h2>

@@ -6,6 +6,7 @@ import QueryResults from '../components/QueryResults';
 import EducationalPanel, { KeyConcept, CommonMistakes, RealWorldExample } from '../components/EducationalPanel';
 import QueryExplainer from '../components/QueryExplainer';
 import { GlossaryTerm } from '../components/Glossary';
+import PSQLReminder from '../components/PSQLReminder';
 
 export default function Part5Ratings() {
   const [queryResults, setQueryResults] = useState(null);
@@ -136,6 +137,13 @@ ORDER BY r.rating_type;`;
             />
           </EducationalPanel>
         </div>
+
+        <PSQLReminder>
+          <p className="text-sm text-gray-700">
+            All rating queries run inside the <code className="bg-gray-100 px-1 rounded">p2p_delivery</code> database. Connect with&nbsp;
+            <code className="bg-gray-100 px-1 rounded">psql -U postgres -d p2p_delivery</code> before executing the commands below.
+          </p>
+        </PSQLReminder>
 
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Create Ratings Table</h2>
