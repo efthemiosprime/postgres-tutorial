@@ -203,9 +203,21 @@ export default function Part1DatabaseSetup() {
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Step 1: Create the Database</h2>
           <p className="text-gray-700 mb-4">
-            First, create a new PostgreSQL database for our platform. If you're using psql command line, 
-            connect to PostgreSQL and run:
+            First, open the <code className="bg-gray-100 px-1 rounded">psql</code> interactive shell, then create a new PostgreSQL database for our platform.
           </p>
+          <div className="mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+            <p className="text-sm text-gray-700 mb-2">
+              From your terminal, connect to PostgreSQL (replace <code className="bg-gray-100 px-1 rounded">postgres</code> with your username if different):
+            </p>
+            <pre className="text-sm text-gray-900 bg-gray-900 text-green-200 rounded-lg p-3 overflow-x-auto mb-2">
+psql -U postgres -d postgres
+            </pre>
+            <p className="text-sm text-gray-700">
+              Once you see the <code className="bg-gray-100 px-1 rounded">postgres=#</code> prompt, run the SQL below. If your server is on a different host or port, add
+              <code className="bg-gray-100 px-1 rounded"> -h your_host -p 5432</code> to the command. You can exit <code className="bg-gray-100 px-1 rounded">psql</code> anytime with
+              <code className="bg-gray-100 px-1 rounded"> \q</code>.
+            </p>
+          </div>
           <SQLEditor initialQuery={part1Queries.createDatabase} readOnly={true} />
           <EducationalPanel title="Understanding This Step" type="info" defaultOpen={false}>
             <StepByStep 
